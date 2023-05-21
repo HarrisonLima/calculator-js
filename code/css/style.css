@@ -1,0 +1,68 @@
+body {
+  background: #141414;
+}
+
+.calculator {
+  align-items: center;
+  border: solid 1px #818181;
+  border-radius: 5px;
+  justify-content: center;
+  left: 50%;
+  padding-top: 20px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+#history {
+    border: solid 1px #818181;
+    border-radius: 5px;
+    background: #141414;
+    color: #ffffff;
+    cursor: pointer;
+  font-size: 20px;
+  margin-left: 220px;
+  padding: 8px;
+}
+
+#operation {
+  background: #141414;
+  border: solid 1.5px #818181;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 20px;
+  height: 40px;
+  margin-top: 15px;
+  width: 340px;
+}
+
+.buttons__digits {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.buttons__digits button {
+  background: #141414;
+  border: solid 1.5px #818181;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  height: 50px;
+  margin: 5px 2px 5px 2px;
+  width: 80px;
+}
