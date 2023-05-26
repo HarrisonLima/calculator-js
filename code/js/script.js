@@ -25,8 +25,8 @@ var expression, result, operator;
 input.addEventListener("keydown", function (event) {
   var key = event.key;
 
-  if (key === "." && input.value.includes(".")) {
-    event.preventDefault();
+  function isNumeric(value) {
+    return /^\d+$/.test(value);
   }
 
   if (!isNumeric(key) && !isValidOperator(key)) {
@@ -38,17 +38,9 @@ input.addEventListener("keydown", function (event) {
   }
 });
 
-function isNumeric(value) {
-  return /^\d+$/.test(value);
-}
-
 function isValidOperator(operator) {
   var operators = ["+", "-", "*", "/", "="];
   return operators.includes(operator);
-}
-
-function formatNumber(number) {
-  return Number(number).toLocaleString();
 }
 
 function getLastCharacter() {
@@ -56,30 +48,20 @@ function getLastCharacter() {
   return value.charAt(value.length - 1);
 }
 
-function hasOperatorInserted() {
-  var value = input.value;
-  var operators = ["+", "-", "*", "/"];
-  return operators.some(function (operator) {
-    return value.includes(operator);
-  });
-}
-
 btnPlus.addEventListener("click", function () {
   if (input.value !== "") {
     if (firstNum == "") {
       firstNum = input.value;
       input.value = "";
-    } else if (secondNum == "" && result == "") {
+      
+    } else {
+      console.log("else" + firstNum);
       secondNum = input.value;
       result = parseFloat(firstNum) + parseFloat(secondNum);
-
       showResult();
-    } else if (result != "") {
-      firstNum = result;
-      secondNum = input.value;
-      result = parseFloat(firstNum) + parseFloat(secondNum);
 
-      showResult();
+      firstNum = "";
+      secondNum = "";
     }
   }
 });
@@ -98,10 +80,7 @@ btnClear.addEventListener("click", function () {
   input.value = "";
 });
 
-function showResult(firstNum, secondNum) {
-    result = parseFloat(result);
+function showResult() {
+  input = Number(input.value).toLocaleString();
   input.value = formatNumber(result.toFixed(6));
-
-  firstNum = "";
-  secondNum = "";
 }
