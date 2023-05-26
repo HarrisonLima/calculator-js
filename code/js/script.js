@@ -19,8 +19,60 @@ var btn9 = document.getElementById("btn9");
 var input = document.getElementById("operation");
 var firstNum = "";
 var secondNum = "";
+var operator = "";
 var result = "";
-var expression, result, operator;
+var expression, result;
+
+function btn0__Event(){
+  input.value = input.value + "0";
+}
+
+function btn1__Event(){
+  input.value = input.value + "1";
+}
+
+function btn2__Event(){
+  input.value = input.value + "2";
+}
+
+function btn3__Event(){
+  input.value = input.value + "3";
+}
+
+function btn4__Event(){
+  input.value = input.value + "4";
+}
+
+function btn5__Event(){
+  input.value = input.value + "5";
+}
+
+function btn6__Event(){
+  input.value = input.value + "6";
+}
+
+function btn7__Event(){
+  input.value = input.value + "7";
+}
+
+function btn8__Event(){
+  input.value = input.value + "8";
+}
+
+function btn9__Event(){
+  input.value = input.value + "9";
+}
+
+btn0.addEventListener("click", btn0__Event);
+btn1.addEventListener("click", btn1__Event);
+btn2.addEventListener("click", btn2__Event);
+btn3.addEventListener("click", btn3__Event);
+btn4.addEventListener("click", btn4__Event);
+btn5.addEventListener("click", btn5__Event);
+btn6.addEventListener("click", btn6__Event);
+btn7.addEventListener("click", btn7__Event);
+btn8.addEventListener("click", btn8__Event);
+btn9.addEventListener("click", btn9__Event);
 
 input.addEventListener("keydown", function (event) {
   var key = event.key;
@@ -48,39 +100,124 @@ function getLastCharacter() {
   return value.charAt(value.length - 1);
 }
 
-btnPlus.addEventListener("click", function () {
+function btnPlus__Event() {
   if (input.value !== "") {
-    if (firstNum == "") {
+    if (firstNum == "" && operator == ""  ) {
       firstNum = input.value;
+      operator = "+";
+
       input.value = "";
-      
     } else {
-      console.log("else" + firstNum);
       secondNum = input.value;
       result = parseFloat(firstNum) + parseFloat(secondNum);
+
       showResult();
 
       firstNum = "";
       secondNum = "";
+      operator = "";
     }
   }
-});
+}
 
-btnEquals.addEventListener("click", function () {
-  var expression = input.value;
-  var result = eval(expression);
+function btnMinus__Event() {
+  if (input.value !== "") {
+    if (firstNum == "") {
+      firstNum = input.value;
+      input.value = "";
+      operator = "-";
+    } else {
+      secondNum = input.value;
+      result = parseFloat(firstNum) - parseFloat(secondNum);
 
-  input.value = formatNumber(result.toFixed(6));
-});
+      showResult();
+      
+      firstNum = "";
+      secondNum = "";
+      operator = "";
+    }
+  }
+}
 
-btnClear.addEventListener("click", function () {
+function btnTimes__Event() {
+  if (input.value !== "") {
+    if (firstNum == "") {
+      firstNum = input.value;
+      input.value = "";
+      operator = "*";
+    } else {
+      secondNum = input.value;
+      result = parseFloat(firstNum) * parseFloat(secondNum);
+      
+      showResult();
+      
+      firstNum = "";
+      secondNum = "";
+      operator = "";
+    }
+  }
+}
+
+function btnSplit__Event() {
+  if (input.value !== "") {
+    if (firstNum == "") {
+      firstNum = input.value;
+      input.value = "";
+      operator = "/";
+    } else {
+      secondNum = input.value;
+      result = parseFloat(firstNum) / parseFloat(secondNum);
+      
+      showResult();
+      
+      firstNum = "";
+      secondNum = "";
+      operator = "";
+    }
+  }
+}
+
+btnPlus.addEventListener("click", btnPlus__Event);
+btnMinus.addEventListener("click", btnMinus__Event);
+btnTimes.addEventListener("click", btnTimes__Event);
+btnSplit.addEventListener("click", btnSplit__Event);
+
+function btnEquals__Event() {
+  if (operator != "" && input.value != "") {
+    console.log(operator);
+    switch (operator) {
+      case "+":
+        btnPlus__Event();
+        operator = "";
+        break;
+      case "-":
+        btnMinus__Event();
+        operator = "";
+        break;
+      case "*":
+        btnTimes__Event();
+        operator = "";
+        break;
+      case "/":
+        btnSplit__Event();
+        operator = "";
+        break;
+    }
+  }
+}
+
+btnEquals.addEventListener("click", btnEquals__Event);
+
+function btnClear__Event() {
   firstNum = "";
   secondNum = "";
   result = "";
+  operator = "";
   input.value = "";
-});
+}
+
+btnClear.addEventListener("click", btnClear__Event);
 
 function showResult() {
-  input = Number(input.value).toLocaleString();
-  input.value = formatNumber(result.toFixed(6));
+  input.value = Number(result.toFixed(6));
 }
