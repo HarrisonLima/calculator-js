@@ -5,6 +5,7 @@ var btnMinus = document.getElementById("btnMinus");
 var btnPlus = document.getElementById("btnPlus");
 var btnSplit = document.getElementById("btnSplit");
 var btnTimes = document.getElementById("btnTimes");
+var btnPercent = document.getElementById("btnPercent");
 
 var btn0 = document.getElementById("btn0");
 var btn1 = document.getElementById("btn1");
@@ -198,11 +199,31 @@ function btnSplit__Event() {
   }
 }
 
+function btnPercent__Event() {
+  if (input.value !== "") {
+    if (firstNum == "") {
+      firstNum = input.value;
+      input.value = "";
+      operator = "%";
+    } else {
+      secondNum = input.value;
+      result = (parseFloat(firstNum) * parseFloat(secondNum)) / 100;
+      
+      showResult();
+      
+      firstNum = "";
+      secondNum = "";
+      operator = "";
+    }
+  }
+}
+
 btnBackspace.addEventListener("click", btnBackspace__Event);
 btnPlus.addEventListener("click", btnPlus__Event);
 btnMinus.addEventListener("click", btnMinus__Event);
 btnTimes.addEventListener("click", btnTimes__Event);
 btnSplit.addEventListener("click", btnSplit__Event);
+btnPercent.addEventListener("click", btnPercent__Event);
 
 function btnEquals__Event() {
   if (operator != "" && input.value != "") {
@@ -224,6 +245,10 @@ function btnEquals__Event() {
         btnSplit__Event();
         operator = "";
         break;
+      case "%":
+        btnPercent__Event();
+        operator = "";
+        break;
     }
   }
 }
@@ -243,3 +268,5 @@ btnClear.addEventListener("click", btnClear__Event);
 function showResult() {
   input.value = Number(result.toFixed(6));
 }
+
+
