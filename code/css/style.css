@@ -49,7 +49,6 @@ body {
   color: #ffffff;
   font-size: 20px;
   height: 40px;
-  margin-top: 15px;
   width: 340px;
 }
 
@@ -68,12 +67,11 @@ body {
 }
 
 .buttons__digits {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-top: 25px;
 }
 
 .buttons__digits button {
-  background: #141414;
   background: #141414;
   border: solid 1.5px #818181;
   border-radius: 5px;
@@ -84,11 +82,21 @@ body {
   margin: 5px 2px 5px 2px;
   width: 80px;
 }
-#btnClear, #btnBackspace{
+
+ #btnBackspace:hover ,#btnClear:hover{
+  background: #ff9100;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.buttons__digits button:hover{
+  background: #4e4e4e;
+}
+#btnClear,
+#btnBackspace {
   color: #ff9100;
   font-weight: 500;
-}  
-
+}
 
 #btnEquals {
   background: #ff9100;

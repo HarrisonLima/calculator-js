@@ -1,85 +1,378 @@
-var btnClear = document.getElementById("btnClear");
-var btnBackspace = document.getElementById("btnBackspace");
-var btnEquals = document.getElementById("btnEquals");
-var btnMinus = document.getElementById("btnMinus");
-var btnPlus = document.getElementById("btnPlus");
-var btnSplit = document.getElementById("btnSplit");
-var btnTimes = document.getElementById("btnTimes");
-var btnPercent = document.getElementById("btnPercent");
+// var btnClear = document.getElementById("btnClear");
+// var btnBackspace = document.getElementById("btnBackspace");
+// var btnEquals = document.getElementById("btnEquals");
+// var btnMinus = document.getElementById("btnMinus");
+// var btnPlus = document.getElementById("btnPlus");
+// var btnSplit = document.getElementById("btnSplit");
+// var btnTimes = document.getElementById("btnTimes");
+// var btnPercent = document.getElementById("btnPercent");
+// var btnPoint = document.getElementById("btnPoint");
 
-var btn0 = document.getElementById("btn0");
-var btn1 = document.getElementById("btn1");
-var btn2 = document.getElementById("btn2");
-var btn3 = document.getElementById("btn3");
-var btn4 = document.getElementById("btn4");
-var btn5 = document.getElementById("btn5");
-var btn6 = document.getElementById("btn6");
-var btn7 = document.getElementById("btn7");
-var btn8 = document.getElementById("btn8");
-var btn9 = document.getElementById("btn9");
+// var input = document.getElementById("operation");
+// var firstNum = "";
+// var secondNum = "";
+// var operator = "";
+// var result = "";
+// var expression, result, previewFirstNum, previewSecondNum, previewResult;
+
+// var divShowOperation = document.createElement("div");
+// var showOperation = document.createElement("p");
+
+// divShowOperation.appendChild(showOperation);
+
+// divShowOperation.style.display = "flex";
+// divShowOperation.style.justifyContent = "end";
+// divShowOperation.style.marginRight = "80px";
+
+// showOperation.setAttribute("id", "showOperation");
+// showOperation.style.color = "#ff9100  ";
+// showOperation.style.fontSize = "18px";
+// showOperation.style.marginTop = "20px";
+// showOperation.style.marginBottom = "5px";
+
+// input.parentNode.insertBefore(divShowOperation, input);
+
+// var buttons = [];
+
+// for (var i = 0; i < 10; i++) {
+//   var btn = document.getElementById("btn" + i);
+//   buttons.push(btn);
+//   btn.addEventListener("click", btnClickEvent);
+// }
+
+// input.parentNode.insertBefore(divShowOperation, input);
+
+// function btnClickEvent() {
+//   input.value += this.textContent;
+//   updatePreview();
+// }
+
+// function sanitizeInput(value) {
+//   var sanitizedValue = value.replace(/[^0-9.]/g, "");
+//   var decimalCount = sanitizedValue.split(".").length - 1;
+
+//   if (decimalCount > 1) {
+//     sanitizedValue = sanitizedValue.replace(/\./g, "");
+//   }
+
+//   return sanitizedValue;
+// }
+
+// function isValidOperator(operator) {
+//   var operators = ["+", "-", "*", "/", "="];
+//   return operators.includes(operator);
+// }
+
+// function updatePreview() {
+//   if (firstNum !== "") {
+//     previewSecondNum = input.value;
+//     switch (operator) {
+//       case "+":
+//         previewResult =
+//           parseFloat(previewFirstNum) + parseFloat(previewSecondNum);
+//         showOperation.textContent = `= ${previewResult}`;
+//         console.log(previewResult);
+//         break;
+//       case "-":
+//         previewResult =
+//           parseFloat(previewFirstNum) - parseFloat(previewSecondNum);
+//         showOperation.textContent = `= ${previewResult}`;
+//         console.log(previewResult);
+//         break;
+//       case "*":
+//         previewResult =
+//           parseFloat(previewFirstNum) * parseFloat(previewSecondNum);
+//         showOperation.textContent = `= ${previewResult}`;
+//         console.log(previewResult);
+//         break;
+//       case "/":
+//         previewResult =
+//           parseFloat(previewFirstNum) / parseFloat(previewSecondNum);
+//         showOperation.textContent = `= ${previewResult}`;
+//         console.log(previewResult);
+//         break;
+//       case "%":
+//         previewResult =
+//           (parseFloat(previewFirstNum) * parseFloat(previewSecondNum)) / 100;
+//         showOperation.textContent = `= ${previewResult}`;
+//         console.log(previewResult);
+//         break;
+//     }
+//   }
+// }
+
+// input.addEventListener("keyup", function (event) {
+//   var inputValue = event.target.value;
+//   var sanitizedValue = sanitizeInput(inputValue);
+//   event.target.value = sanitizedValue;
+
+//   updatePreview();
+// });
+
+// input.addEventListener("keydown", function (event) {
+//   var key = event.key;
+
+//   function isNumeric(value) {
+//     return /^\d+$/.test(value);
+//   }
+
+//   if (
+//     !isNumeric(key) &&
+//     !isValidOperator(key) &&
+//     key !== "." &&
+//     key !== "Backspace"
+//   ) {
+//     event.preventDefault();
+//   }
+
+//   if (input.value.includes(".") && key === ".") {
+//     event.preventDefault();
+//   }
+
+//   if (input.value.length >= 25 && key !== "Backspace") {
+//     event.preventDefault();
+//   }
+// });
+
+// function btnBackspace__Event() {
+//   input.value = input.value.slice(0, -1);
+// }
+
+// function btnPlus__Event() {
+//   if (input.value !== "") {
+//     if (firstNum == "" && operator == "") {
+//       firstNum = input.value;
+//       previewFirstNum = firstNum;
+//       operator = "+";
+
+//       input.value = "";
+//     } else {
+//       secondNum = input.value;
+//       result = parseFloat(firstNum) + parseFloat(secondNum);
+
+//       showResult();
+
+//       firstNum = "";
+//       secondNum = "";
+//       operator = "";
+//     }
+//   }
+// }
+
+// function btnMinus__Event() {
+//   if (input.value !== "") {
+//     if (firstNum == "") {
+//       firstNum = input.value;
+//       previewFirstNum = firstNum;
+//       operator = "-";
+
+//       input.value = "";
+//     } else {
+//       secondNum = input.value;
+//       result = parseFloat(firstNum) - parseFloat(secondNum);
+
+//       showResult();
+
+//       firstNum = "";
+//       secondNum = "";
+//       operator = "";
+//     }
+//   }
+// }
+
+// function btnTimes__Event() {
+//   if (input.value !== "") {
+//     if (firstNum == "") {
+//       firstNum = input.value;
+//       previewFirstNum = firstNum;
+//       operator = "*";
+
+//       input.value = "";
+//     } else {
+//       secondNum = input.value;
+//       result = parseFloat(firstNum) * parseFloat(secondNum);
+
+//       showResult();
+
+//       firstNum = "";
+//       secondNum = "";
+//       operator = "";
+//     }
+//   }
+// }
+
+// function btnSplit__Event() {
+//   if (input.value !== "") {
+//     if (firstNum == "") {
+//       firstNum = input.value;
+//       previewFirstNum = firstNum;
+//       operator = "/";
+
+//       input.value = "";
+//     } else {
+//       secondNum = input.value;
+//       result = parseFloat(firstNum) / parseFloat(secondNum);
+
+//       showResult();
+
+//       firstNum = "";
+//       secondNum = "";
+//       operator = "";
+//     }
+//   }
+// }
+
+// function btnPercent__Event() {
+//   if (input.value !== "") {
+//     if (firstNum == "") {
+//       firstNum = input.value;
+//       previewFirstNum = firstNum;
+//       operator = "%";
+
+//       input.value = "";
+//     } else {
+//       secondNum = input.value;
+//       result = (parseFloat(firstNum) * parseFloat(secondNum)) / 100;
+
+//       showResult();
+
+//       firstNum = "";
+//       secondNum = "";
+//       operator = "";
+//     }
+//   }
+// }
+
+// function btnEquals__Event() {
+//   if (operator != "" && input.value != "") {
+//     switch (operator) {
+//       case "+":
+//         btnPlus__Event();
+//         operator = "";
+//         break;
+//       case "-":
+//         btnMinus__Event();
+//         operator = "";
+//         break;
+//       case "*":
+//         btnTimes__Event();
+//         operator = "";
+//         break;
+//       case "/":
+//         btnSplit__Event();
+//         operator = "";
+//         break;
+//       case "%":
+//         btnPercent__Event();
+//         operator = "";
+//         break;
+//     }
+//   }
+// }
+
+// function btnClear__Event() {
+//   firstNum = "";
+//   secondNum = "";
+//   result = "";
+//   operator = "";
+//   input.value = "";
+//   previewFirstNum = "";
+//   previewSecondNum = "";
+//   previewResult = "";
+//   previewResult = "";
+//   showOperation.textContent = "";
+// }
+
+// btnBackspace.addEventListener("click", btnBackspace__Event);
+// btnPlus.addEventListener("click", btnPlus__Event);
+// btnMinus.addEventListener("click", btnMinus__Event);
+// btnTimes.addEventListener("click", btnTimes__Event);
+// btnSplit.addEventListener("click", btnSplit__Event);
+// btnPercent.addEventListener("click", btnPercent__Event);
+// btnEquals.addEventListener("click", btnEquals__Event);
+// btnClear.addEventListener("click", btnClear__Event);
+
+// function showResult() {
+//   input.value = Number(result.toFixed(6));
+// }
 
 var input = document.getElementById("operation");
+var buttons = document.querySelectorAll(".btn");
+var operators = ["+", "-", "*", "/", "%"];
 var firstNum = "";
-var secondNum = "";
 var operator = "";
-var result = "";
-var expression, result;
+var previewFirstNum, previewSecondNum, previewResult;
+var btnBackspace = document.getElementById("btnBackspace");
+var divShowOperation = document.createElement("div");
+var showOperation = document.createElement("p");
+var result;
 
-function btn0__Event(){
-  input.value = input.value + "0";
-}
+divShowOperation.appendChild(showOperation);
 
-function btn1__Event(){
-  input.value = input.value + "1";
-}
+divShowOperation.style.display = "flex";
+divShowOperation.style.justifyContent = "end";
+divShowOperation.style.marginRight = "80px";
 
-function btn2__Event(){
-  input.value = input.value + "2";
-}
+showOperation.setAttribute("id", "showOperation");
+showOperation.style.color = "#ff9100  ";
+showOperation.style.fontSize = "18px";
+showOperation.style.marginTop = "20px";
+showOperation.style.marginBottom = "5px";
 
-function btn3__Event(){
-  input.value = input.value + "3";
-}
+input.parentNode.insertBefore(divShowOperation, input);
 
-function btn4__Event(){
-  input.value = input.value + "4";
-}
+buttons.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var value = this.textContent;
 
-function btn5__Event(){
-  input.value = input.value + "5";
-}
+    if (value === "=") {
+      if (firstNum !== "" && input.value !== "") {
+        calcResult();
+        showOperation.textContent = "";
+      }
+      showOperation.textContent = "";
+    } else if (value === ".") {
+      if (input.value === "" || input.value.includes(".")) {
+        return;
+      } else {
+        input.value += value;
+      }
+    } else if (operators.includes(value)) {
+      if (firstNum !== "" && input.value !== "") {
+        calcResult();
+      } else if (value === "-" && input.value === "") {
+        input.value += value;
+      } else {
+        firstNum = input.value;
+        operator = value;
+        previewFirstNum = firstNum;
+        previewOperator = operator;
+        input.value = "";
+      }
+    } else if (value === "C") {
+      clearAll();
+    } else {
+      input.value += value;
 
-function btn6__Event(){
-  input.value = input.value + "6";
-}
+      if (firstNum !== "") {
+        updatePreview();
+      }
+    }
+  });
+});
 
-function btn7__Event(){
-  input.value = input.value + "7";
-}
+btnBackspace.addEventListener("click", function () {
+  if (input.value === "-") {
+    input.value = "";
+  } else {
+    input.value = input.value.slice(0, -1);
+  }
 
-function btn8__Event(){
-  input.value = input.value + "8";
-}
-
-function btn9__Event(){
-  input.value = input.value + "9";
-}
-
-btn0.addEventListener("click", btn0__Event);
-btn1.addEventListener("click", btn1__Event);
-btn2.addEventListener("click", btn2__Event);
-btn3.addEventListener("click", btn3__Event);
-btn4.addEventListener("click", btn4__Event);
-btn5.addEventListener("click", btn5__Event);
-btn6.addEventListener("click", btn6__Event);
-btn7.addEventListener("click", btn7__Event);
-btn8.addEventListener("click", btn8__Event);
-btn9.addEventListener("click", btn9__Event);
-
-input.addEventListener("input", function(event) {
-  var inputValue = event.target.value;
-  var sanitizedValue = sanitizeInput(inputValue);
-  event.target.value = sanitizedValue;
+  if (firstNum === "") {
+    showOperation.textContent = "";
+  } else {
+    updatePreview();
+  }
 });
 
 function sanitizeInput(value) {
@@ -93,19 +386,42 @@ function sanitizeInput(value) {
   return sanitizedValue;
 }
 
-function isValidOperator(operator) {
-  var operators = ["+", "-", "*", "/", "="];
-  return operators.includes(operator);
-}
-
-input.addEventListener("keydown", function(event) {
+input.addEventListener("keydown", function (event) {
   var key = event.key;
 
-  function isNumeric(value) {
-    return /^\d+$/.test(value);
+  if (operators.includes(key) && input.value !== "") {
+    if (firstNum === "") {
+      firstNum = input.value;
+      operator = key;
+      previewFirstNum = firstNum;
+      previewOperator = operator;
+      input.value = "";
+    } else if (firstNum !== "" && input.value !== "") {
+      operator = key;
+      previewOperator = operator;
+      calcResult();
+      
+      firstNum = result;
+      previewFirstNum = firstNum;
+      input.value = "";
+    }
   }
 
-  if (!isNumeric(key) && !isValidOperator(key) && key !== "." && key !== "Backspace") {
+  if (key === "=") {
+    if (firstNum !== "" && input.value !== "") {
+      calcResult();
+      showOperation.textContent = "";
+    }
+    showOperation.textContent = "";
+  }
+
+  if (
+    !isNumeric(key) &&
+    !operators.includes(key) &&
+    key !== "=" &&
+    key !== "." &&
+    key !== "Backspace"
+  ) {
     event.preventDefault();
   }
 
@@ -116,157 +432,89 @@ input.addEventListener("keydown", function(event) {
   if (input.value.length >= 25 && key !== "Backspace") {
     event.preventDefault();
   }
+
+  if (key === "Backspace" && firstNum === "") {
+    showOperation.textContent = "";
+  }
 });
 
-function btnBackspace__Event(){
-  input.value = input.value.slice(0, -1);
+input.addEventListener("keyup", function (event) {
+  var inputValue = event.target.value;
+  var sanitizedValue = sanitizeInput(inputValue);
+  event.target.value = sanitizedValue;
+
+  updatePreview();
+});
+
+function isNumeric(value) {
+  return /^\d+$/.test(value);
 }
 
-function btnPlus__Event() {
-  if (input.value !== "") {
-    if (firstNum == "" && operator == ""  ) {
-      firstNum = input.value;
-      operator = "+";
-
-      input.value = "";
-    } else {
-      secondNum = input.value;
-      result = parseFloat(firstNum) + parseFloat(secondNum);
-
-      showResult();
-
-      firstNum = "";
-      secondNum = "";
-      operator = "";
-    }
-  }
-}
-
-function btnMinus__Event() {
-  if (input.value !== "") {
-    if (firstNum == "") {
-      firstNum = input.value;
-      input.value = "";
-      operator = "-";
-    } else {
-      secondNum = input.value;
-      result = parseFloat(firstNum) - parseFloat(secondNum);
-
-      showResult();
-      
-      firstNum = "";
-      secondNum = "";
-      operator = "";
-    }
-  }
-}
-
-function btnTimes__Event() {
-  if (input.value !== "") {
-    if (firstNum == "") {
-      firstNum = input.value;
-      input.value = "";
-      operator = "*";
-    } else {
-      secondNum = input.value;
-      result = parseFloat(firstNum) * parseFloat(secondNum);
-      
-      showResult();
-      
-      firstNum = "";
-      secondNum = "";
-      operator = "";
-    }
-  }
-}
-
-function btnSplit__Event() {
-  if (input.value !== "") {
-    if (firstNum == "") {
-      firstNum = input.value;
-      input.value = "";
-      operator = "/";
-    } else {
-      secondNum = input.value;
-      result = parseFloat(firstNum) / parseFloat(secondNum);
-      
-      showResult();
-      
-      firstNum = "";
-      secondNum = "";
-      operator = "";
-    }
-  }
-}
-
-function btnPercent__Event() {
-  if (input.value !== "") {
-    if (firstNum == "") {
-      firstNum = input.value;
-      input.value = "";
-      operator = "%";
-    } else {
-      secondNum = input.value;
-      result = (parseFloat(firstNum) * parseFloat(secondNum)) / 100;
-      
-      showResult();
-      
-      firstNum = "";
-      secondNum = "";
-      operator = "";
-    }
-  }
-}
-
-btnBackspace.addEventListener("click", btnBackspace__Event);
-btnPlus.addEventListener("click", btnPlus__Event);
-btnMinus.addEventListener("click", btnMinus__Event);
-btnTimes.addEventListener("click", btnTimes__Event);
-btnSplit.addEventListener("click", btnSplit__Event);
-btnPercent.addEventListener("click", btnPercent__Event);
-
-function btnEquals__Event() {
-  if (operator != "" && input.value != "") {
-    console.log(operator);
-    switch (operator) {
+function updatePreview() {
+  if (input.value !== "" && firstNum !== "") {
+    previewSecondNum = input.value;
+    switch (previewOperator) {
       case "+":
-        btnPlus__Event();
-        operator = "";
+        previewResult =
+          parseFloat(previewFirstNum) + parseFloat(previewSecondNum);
         break;
       case "-":
-        btnMinus__Event();
-        operator = "";
+        previewResult =
+          parseFloat(previewFirstNum) - parseFloat(previewSecondNum);
         break;
       case "*":
-        btnTimes__Event();
-        operator = "";
+        previewResult =
+          parseFloat(previewFirstNum) * parseFloat(previewSecondNum);
         break;
       case "/":
-        btnSplit__Event();
-        operator = "";
+        previewResult =
+          parseFloat(previewFirstNum) / parseFloat(previewSecondNum);
         break;
       case "%":
-        btnPercent__Event();
-        operator = "";
+        previewResult =
+          (parseFloat(previewFirstNum) * parseFloat(previewSecondNum)) / 100;
         break;
     }
+    showOperation.textContent = `= ${previewResult.toLocaleString()}`;
+  } else {
+    showOperation.textContent !== "";
   }
 }
 
-btnEquals.addEventListener("click", btnEquals__Event);
+function calcResult() {
+  var secondNum = input.value;
 
-function btnClear__Event() {
+  switch (operator) {
+    case "+":
+      result = parseFloat(firstNum) + parseFloat(secondNum);
+      break;
+    case "-":
+      result = parseFloat(firstNum) - parseFloat(secondNum);
+      break;
+    case "*":
+      result = parseFloat(firstNum) * parseFloat(secondNum);
+      break;
+    case "/":
+      result = parseFloat(firstNum) / parseFloat(secondNum);
+      break;
+    case "%":
+      result = parseFloat(firstNum) % parseFloat(secondNum);
+      break;
+  }
+
+  input.value = result.toLocaleString();
+
   firstNum = "";
-  secondNum = "";
-  result = "";
   operator = "";
+}
+
+function clearAll() {
+  firstNum = "";
   input.value = "";
+  operator = "";
+  previewFirstNum = "";
+  previewSecondNum = "";
+  previewResult = "";
+  previewOperator = "";
+  showOperation.textContent = "";
 }
-
-btnClear.addEventListener("click", btnClear__Event);
-
-function showResult() {
-  input.value = Number(result.toFixed(6));
-}
-
-
