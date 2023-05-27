@@ -8,6 +8,7 @@ body {
   border-radius: 5px;
   justify-content: center;
   left: 50%;
+  margin-top: 20px;
   padding-top: 20px;
   position: absolute;
   text-align: center;
@@ -29,14 +30,16 @@ body {
 }
 
 #history {
-    border: solid 1px #818181;
-    border-radius: 5px;
-    background: #141414;
-    color: #ffffff;
-    cursor: pointer;
-  font-size: 20px;
+  border: solid 1px #818181;
+  border-radius: 5px;
+  background: #141414;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 45px;
   margin-left: 220px;
-  padding: 8px;
+  padding: 10px;
+  width: 130px;
 }
 
 #operation {
@@ -50,13 +53,45 @@ body {
   width: 340px;
 }
 
+#btnBackspace {
+  background: #141414;
+  border: solid 1.5px #818181;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+  width: 170px;
+}
+
+#iconDelete {
+  color: #ffffff;
+  font-size: 22.5px;
+}
+
 .buttons__digits {
-    margin-bottom: 20px;
-    margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 25px;
 }
 
 .buttons__digits button {
   background: #141414;
+  background: #141414;
+  border: solid 1.5px #818181;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  height: 50px;
+  margin: 5px 2px 5px 2px;
+  width: 80px;
+}
+#btnClear{
+  color: #ff9100;
+  font-weight: 500;
+}  
+
+
+#btnEquals {
+  background: #ff9100;
   border: solid 1.5px #818181;
   border-radius: 5px;
   color: #ffffff;

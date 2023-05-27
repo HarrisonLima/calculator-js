@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/fb57ddc8bd.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link rel="stylesheet" href="css/style.css" />
     <title>Calculator</title>
   </head>
@@ -12,15 +21,20 @@
     <p class="title">Calculator</p>
     <div class="calculator">
       <div class="calculator__content">
-          <button id="history">Track history</button><br />
-          <input id="operation" type="text" />
+        <button id="history">Track history</button><br />
+        <input id="operation" type="text" />
 
         <div class="buttons__digits">
+          <div class="buttons__digits--header">
+            <button id="btnPercent">%</button>
+            <button id="btnSplit">/</button>
+            <button id="btnBackspace" value="8"><i class="fa-solid fa-delete-left"></i></button>
+          </div>
           <div class="buttons__digits--firstLine">
             <button id="btn7" value="7">7</button>
             <button id="btn8" value="8">8</button>
             <button id="btn9" value="9">9</button>
-            <button id="btnPlus">+</button>
+            <button id="btnTimes">*</button>
           </div>
           <div class="buttons__digits--secondLine">
             <button id="btn4" value="4">4</button>
@@ -32,13 +46,13 @@
             <button id="btn1" value="1">1</button>
             <button id="btn2" value="2">2</button>
             <button id="btn3" value="3">3</button>
-            <button id="btnTimes">*</button>
+            <button id="btnPlus">+</button>
           </div>
           <div class="buttons__digits--fourthLine">
             <button id="btnClear">C</button>
             <button id="btn0" value="4">0</button>
+            <button id="btnPoint">.</button>
             <button id="btnEquals">=</button>
-            <button id="btnSplit">/</button>
           </div>
         </div>
       </div>

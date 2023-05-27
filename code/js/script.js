@@ -1,4 +1,5 @@
 var btnClear = document.getElementById("btnClear");
+var btnBackspace = document.getElementById("btnBackspace");
 var btnEquals = document.getElementById("btnEquals");
 var btnMinus = document.getElementById("btnMinus");
 var btnPlus = document.getElementById("btnPlus");
@@ -74,14 +75,40 @@ btn7.addEventListener("click", btn7__Event);
 btn8.addEventListener("click", btn8__Event);
 btn9.addEventListener("click", btn9__Event);
 
-input.addEventListener("keydown", function (event) {
+input.addEventListener("input", function(event) {
+  var inputValue = event.target.value;
+  var sanitizedValue = sanitizeInput(inputValue);
+  event.target.value = sanitizedValue;
+});
+
+function sanitizeInput(value) {
+  var sanitizedValue = value.replace(/[^0-9.]/g, "");
+  var decimalCount = sanitizedValue.split(".").length - 1;
+
+  if (decimalCount > 1) {
+    sanitizedValue = sanitizedValue.replace(/\./g, "");
+  }
+
+  return sanitizedValue;
+}
+
+function isValidOperator(operator) {
+  var operators = ["+", "-", "*", "/", "="];
+  return operators.includes(operator);
+}
+
+input.addEventListener("keydown", function(event) {
   var key = event.key;
 
   function isNumeric(value) {
     return /^\d+$/.test(value);
   }
 
-  if (!isNumeric(key) && !isValidOperator(key)) {
+  if (!isNumeric(key) && !isValidOperator(key) && key !== "." && key !== "Backspace") {
+    event.preventDefault();
+  }
+
+  if (input.value.includes(".") && key === ".") {
     event.preventDefault();
   }
 
@@ -90,14 +117,8 @@ input.addEventListener("keydown", function (event) {
   }
 });
 
-function isValidOperator(operator) {
-  var operators = ["+", "-", "*", "/", "="];
-  return operators.includes(operator);
-}
-
-function getLastCharacter() {
-  var value = input.value;
-  return value.charAt(value.length - 1);
+function btnBackspace__Event(){
+  input.value = input.value.slice(0, -1);
 }
 
 function btnPlus__Event() {
@@ -177,6 +198,7 @@ function btnSplit__Event() {
   }
 }
 
+btnBackspace.addEventListener("click", btnBackspace__Event);
 btnPlus.addEventListener("click", btnPlus__Event);
 btnMinus.addEventListener("click", btnMinus__Event);
 btnTimes.addEventListener("click", btnTimes__Event);
