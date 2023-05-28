@@ -9,6 +9,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/fb57ddc8bd.js"
       crossorigin="anonymous"
@@ -18,43 +24,57 @@
     <title>Calculator</title>
   </head>
   <body>
-    <p class="title">Calculadora</p>
-    <div class="calculator">
-      <div class="calculator__content">
-        <button id="history">Histórico</button><br />
-        <input id="operation" type="text" />
+    <div class="content">
+      <div>
+        <p class="title">Calculadora</p>
+      </div>
+      <div class="calculator">
+        <div class="calculatorOperation">
+          <div class="calculator__content">
+            <button id="btnHistoric">Histórico</button><br />
+            <input id="operation" type="text" />
 
-        <div class="buttons__digits">
-          <div class="buttons__digits--header">
-            <button class="btn" id="btnPercent" value="%">%</button>
-            <button class="btn" id="btnSplit" value="/">/</button>
-            <button id="btnBackspace" value="delete">
-              <i class="fa-solid fa-delete-left"></i>
-            </button>
+            <div class="buttons__digits">
+              <div class="buttons__digits--header">
+                <button class="btn" id="btnPercent" value="%">%</button>
+                <button class="btn" id="btnSplit" value="/">/</button>
+                <button id="btnBackspace" value="delete">
+                  <i class="fa-solid fa-delete-left"></i>
+                </button>
+              </div>
+              <div class="buttons__digits--firstLine">
+                <button class="btn" id="btn7" value="7">7</button>
+                <button class="btn" id="btn8" value="8">8</button>
+                <button class="btn" id="btn9" value="9">9</button>
+                <button class="btn" id="btnTimes" value="*">*</button>
+              </div>
+              <div class="buttons__digits--secondLine">
+                <button class="btn" id="btn4" value="4">4</button>
+                <button class="btn" id="btn5" value="5">5</button>
+                <button class="btn" id="btn6" value="6">6</button>
+                <button class="btn" id="btnMinus" value="-">-</button>
+              </div>
+              <div class="buttons__digits--thirdLine">
+                <button class="btn" id="btn1" value="1">1</button>
+                <button class="btn" id="btn2" value="2">2</button>
+                <button class="btn" id="btn3" value="3">3</button>
+                <button class="btn" id="btnPlus" value="+">+</button>
+              </div>
+              <div class="buttons__digits--fourthLine">
+                <button class="btn" id="btnClear" value="C">C</button>
+                <button class="btn" id="btn0" value="4">0</button>
+                <button class="btn" id="btnPoint" value=".">.</button>
+                <button class="btn" id="btnEquals" value="=">=</button>
+              </div>
+            </div>
           </div>
-          <div class="buttons__digits--firstLine">
-            <button class="btn" id="btn7" value="7">7</button>
-            <button class="btn" id="btn8" value="8">8</button>
-            <button class="btn" id="btn9" value="9">9</button>
-            <button class="btn" id="btnTimes" value="*">*</button>
+        </div>
+        <div class="historic">
+          <div class="headerHistoric">
+            <h1 class="titleHistoric">Histórico</h1>
           </div>
-          <div class="buttons__digits--secondLine">
-            <button class="btn" id="btn4" value="4">4</button>
-            <button class="btn" id="btn5" value="5">5</button>
-            <button class="btn" id="btn6" value="6">6</button>
-            <button class="btn" id="btnMinus" value="-">-</button>
-          </div>
-          <div class="buttons__digits--thirdLine">
-            <button class="btn" id="btn1" value="1">1</button>
-            <button class="btn" id="btn2" value="2">2</button>
-            <button class="btn" id="btn3" value="3">3</button>
-            <button class="btn" id="btnPlus" value="+">+</button>
-          </div>
-          <div class="buttons__digits--fourthLine">
-            <button class="btn" id="btnClear" value="C">C</button>
-            <button class="btn" id="btn0" value="4">0</button>
-            <button class="btn" id="btnPoint" value=".">.</button>
-            <button class="btn" id="btnEquals" value="=">=</button>
+          <div id="listHistoric">
+            <p>10 + 10 = 20</p>
           </div>
         </div>
       </div>
