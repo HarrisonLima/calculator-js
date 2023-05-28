@@ -2,8 +2,22 @@ var input = document.getElementById("operation");
 var buttons = document.querySelectorAll(".btn");
 var btnBackspace = document.getElementById("btnBackspace");
 var btnHistoric = document.getElementById("btnHistoric");
+var btnClose = document.getElementById("btnClose");
+var btnConfirmClear = document.getElementById("btnConfirmClear");
+var btnTrashHistoric = document.getElementById("btnTrashHistoric");
+var btnConfirmClear = document.getElementById("btnConfirmClear");
+var btnOkOnly = document.getElementById("btnOkOnly");
+var iconModalHistoric = document.getElementById("iconModalHistoric");
+var iconModalHistoricEmpty = document.getElementById("iconModalHistoricEmpty");
+var iconModalCleaningConfirmed = document.getElementById("iconModalCleaningConfirmed");
 var listHistoric = document.getElementById("listHistoric");
 var historic = document.getElementById("historic");
+var calculatorHistoricActions = document.getElementById(
+  "calculatorHistoricActions"
+);
+var modalHistoric = document.getElementById("modalHistoric");
+var modalHistoricEmpty = document.getElementById("modalHistoricEmpty");
+var modalCleaningConfirmed = document.getElementById("modalCleaningConfirmed");
 var operators = ["+", "-", "*", "/", "%"];
 var arrayHistoric = [];
 var expression;
@@ -15,7 +29,11 @@ var previewFirstNum, previewSecondNum, previewResult;
 var divShowOperation = document.createElement("div");
 var showOperation = document.createElement("p");
 
-historic.style.display = "block";
+historic.style.display = "none";
+btnTrashHistoric.style.display = "none";
+modalHistoric.style.display = "none";
+modalHistoricEmpty.style.display = "none";
+modalCleaningConfirmed.style.display = "none";
 
 divShowOperation.appendChild(showOperation);
 divShowOperation.style.display = "flex";
@@ -133,10 +151,48 @@ btnBackspace.addEventListener("click", function () {
 btnHistoric.addEventListener("click", function () {
   if (historic.style.display === "none") {
     historic.style.display = "block";
+    btnTrashHistoric.style.display = "block";
+    calculatorHistoricActions.style.marginRight = "45px";
   } else {
     historic.style.display = "none";
+    btnTrashHistoric.style.display = "none";
+    modalHistoric.style.display = "none";
+    modalHistoricEmpty.style.display = "none";
+    modalCleaningConfirmed.style.display = "none";
+    calculatorHistoricActions.style.marginRight = "80px";
   }
 });
+
+btnTrashHistoric.addEventListener("click", function () {
+  if (arrayHistoric.length > 0) {
+    modalHistoric.style.display = "block";
+  } else if (arrayHistoric.length == 0) {
+    modalHistoricEmpty.style.display = "block";
+  }
+});
+
+btnConfirmClear.addEventListener("click", function (){
+  arrayHistoric = [];
+  modalCleaningConfirmed.style.display = "block";
+  listHistoric.innerHTML = "";
+})
+
+btnClose.addEventListener("click", closeModals);
+btnConfirmClear.addEventListener("click", closeModals);
+btnOkOnly.addEventListener("click", closeModals);
+iconModalHistoric.addEventListener("click", closeModals);
+iconModalHistoricEmpty.addEventListener("click", closeModals);
+iconModalCleaningConfirmed.addEventListener("click", closeModals);
+
+function closeModals() {
+  if (modalHistoric.style.display === "block") {
+    modalHistoric.style.display = "none";
+  } else if (modalHistoricEmpty.style.display === "block") {
+    modalHistoricEmpty.style.display = "none";
+  } else if (modalCleaningConfirmed.style.display === "block") {
+    modalCleaningConfirmed.style.display = "none";
+  }
+}
 
 function sanitizeInput(value) {
   var sanitizedValue = value.replace(/[^0-9.]/g, "");
@@ -238,8 +294,11 @@ function updatePreview() {
         break;
     }
 
-    console.log(previewResult.toLocaleString().length)
-    if (previewResult.toLocaleString().length >= 45 && previewResult.toLocaleString().length < 50) {
+    console.log(previewResult.toLocaleString().length);
+    if (
+      previewResult.toLocaleString().length >= 45 &&
+      previewResult.toLocaleString().length < 50
+    ) {
       divShowOperation.style.marginRight = "45px";
     } else if (previewResult.toLocaleString().length >= 50) {
       divShowOperation.style.marginRight = "35px";
@@ -299,7 +358,7 @@ function updateHistoric() {
       listHistoric.style.overflowY = "scroll";
     }
     if (expression.length > 80) {
-      historic.style.width = "1000px";
+      historic.style.width = "850px";
     } else if (expression.length > 50 && expression.length <= 80) {
       historic.style.width = "550px";
     } else if (expression.length > 25 && expression.length <= 50)
