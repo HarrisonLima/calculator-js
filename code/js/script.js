@@ -1,30 +1,30 @@
 var input = document.getElementById("operation");
 var buttons = document.querySelectorAll(".btn");
 var btnBackspace = document.getElementById("btnBackspace");
+var btnHistoric = document.getElementById("btnHistoric");
+var listHistoric = document.getElementById("listHistoric");
+var historic = document.getElementById("historic");
 var operators = ["+", "-", "*", "/", "%"];
-
+var arrayHistoric = [];
+var expression;
 var firstNum = "",
   secondNum = "",
   operator = "",
   result;
 var previewFirstNum, previewSecondNum, previewResult;
-
 var divShowOperation = document.createElement("div");
 var showOperation = document.createElement("p");
 
-var listHistoric = document.getElementById("listHistoric");
-var historic = [];
-var expression;
+historic.style.display = "block";
 
 divShowOperation.appendChild(showOperation);
-
 divShowOperation.style.display = "flex";
 divShowOperation.style.justifyContent = "end";
-divShowOperation.style.marginRight = "80px";
 
 showOperation.setAttribute("id", "showOperation");
 showOperation.style.color = "#ff9100  ";
 showOperation.style.fontSize = "18px";
+showOperation.style.height = "25px";
 showOperation.style.marginTop = "20px";
 showOperation.style.marginBottom = "5px";
 
@@ -130,6 +130,14 @@ btnBackspace.addEventListener("click", function () {
   }
 });
 
+btnHistoric.addEventListener("click", function () {
+  if (historic.style.display === "none") {
+    historic.style.display = "block";
+  } else {
+    historic.style.display = "none";
+  }
+});
+
 function sanitizeInput(value) {
   var sanitizedValue = value.replace(/[^0-9.]/g, "");
   var decimalCount = sanitizedValue.split(".").length - 1;
@@ -183,7 +191,7 @@ input.addEventListener("keydown", function (event) {
     event.preventDefault();
   }
 
-  if (input.value.length >= 25 && key !== "Backspace") {
+  if (input.value.length >= 20 && key !== "Backspace") {
     event.preventDefault();
   }
 
@@ -229,6 +237,16 @@ function updatePreview() {
           (parseFloat(previewFirstNum) * parseFloat(previewSecondNum)) / 100;
         break;
     }
+
+    console.log(previewResult.toLocaleString().length)
+    if (previewResult.toLocaleString().length >= 45 && previewResult.toLocaleString().length < 50) {
+      divShowOperation.style.marginRight = "45px";
+    } else if (previewResult.toLocaleString().length >= 50) {
+      divShowOperation.style.marginRight = "35px";
+    } else {
+      divShowOperation.style.marginRight = "80px";
+    }
+
     showOperation.textContent = `= ${previewResult.toLocaleString()}`;
   } else {
     showOperation.textContent !== "";
@@ -256,10 +274,6 @@ function calcResult() {
   }
   input.value = result.toLocaleString();
 
-  // expression = `${parseFloat(firstNum)} ${operator} ${parseFloat(
-  //   secondNum
-  // )} = ${result}`;
-  // historic.push(expression);
   updateHistoric();
 
   firstNum = "";
@@ -267,17 +281,29 @@ function calcResult() {
 }
 
 function updateHistoric() {
+  let hasLongExpression = false;
+
   expression = `${parseFloat(firstNum)} ${operator} ${parseFloat(
     secondNum
   )} = ${result.toLocaleString()}`;
-  historic.push(expression);
+  arrayHistoric.push(expression);
 
   listHistoric.innerHTML = "";
 
-  historic.forEach(function (expression) {
+  arrayHistoric.forEach(function (expression) {
     var paragraph = document.createElement("p");
     paragraph.textContent = expression;
     listHistoric.appendChild(paragraph);
+
+    if (arrayHistoric.length > 14) {
+      listHistoric.style.overflowY = "scroll";
+    }
+    if (expression.length > 80) {
+      historic.style.width = "1000px";
+    } else if (expression.length > 50 && expression.length <= 80) {
+      historic.style.width = "550px";
+    } else if (expression.length > 25 && expression.length <= 50)
+      historic.style.width = "450px";
   });
 }
 
