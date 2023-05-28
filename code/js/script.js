@@ -1,13 +1,20 @@
 var input = document.getElementById("operation");
 var buttons = document.querySelectorAll(".btn");
-var operators = ["+", "-", "*", "/", "%"];
-var firstNum = "";
-var operator = "";
-var previewFirstNum, previewSecondNum, previewResult;
 var btnBackspace = document.getElementById("btnBackspace");
+var operators = ["+", "-", "*", "/", "%"];
+
+var firstNum = "",
+  secondNum = "",
+  operator = "",
+  result;
+var previewFirstNum, previewSecondNum, previewResult;
+
 var divShowOperation = document.createElement("div");
 var showOperation = document.createElement("p");
-var result;
+
+var listHistoric = document.getElementById("listHistoric");
+var historic = [];
+var expression;
 
 divShowOperation.appendChild(showOperation);
 
@@ -229,8 +236,7 @@ function updatePreview() {
 }
 
 function calcResult() {
-  var secondNum = input.value;
-
+  secondNum = input.value;
   switch (operator) {
     case "+":
       result = parseFloat(firstNum) + parseFloat(secondNum);
@@ -248,11 +254,31 @@ function calcResult() {
       result = parseFloat(firstNum) % parseFloat(secondNum);
       break;
   }
-
   input.value = result.toLocaleString();
+
+  // expression = `${parseFloat(firstNum)} ${operator} ${parseFloat(
+  //   secondNum
+  // )} = ${result}`;
+  // historic.push(expression);
+  updateHistoric();
 
   firstNum = "";
   operator = "";
+}
+
+function updateHistoric() {
+  expression = `${parseFloat(firstNum)} ${operator} ${parseFloat(
+    secondNum
+  )} = ${result.toLocaleString()}`;
+  historic.push(expression);
+
+  listHistoric.innerHTML = "";
+
+  historic.forEach(function (expression) {
+    var paragraph = document.createElement("p");
+    paragraph.textContent = expression;
+    listHistoric.appendChild(paragraph);
+  });
 }
 
 function clearAll() {
