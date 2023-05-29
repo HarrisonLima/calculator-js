@@ -9,7 +9,9 @@ var btnConfirmClear = document.getElementById("btnConfirmClear");
 var btnOkOnly = document.getElementById("btnOkOnly");
 var iconModalHistoric = document.getElementById("iconModalHistoric");
 var iconModalHistoricEmpty = document.getElementById("iconModalHistoricEmpty");
-var iconModalCleaningConfirmed = document.getElementById("iconModalCleaningConfirmed");
+var iconModalCleaningConfirmed = document.getElementById(
+  "iconModalCleaningConfirmed"
+);
 var listHistoric = document.getElementById("listHistoric");
 var historic = document.getElementById("historic");
 var calculatorHistoricActions = document.getElementById(
@@ -72,9 +74,20 @@ buttons.forEach(function (btn) {
         btn.style.background = "";
       }, 100);
       if (input.value === "" || input.value.includes(".")) {
+        return;
       } else {
         input.value += value;
       }
+    } else if (value === "0") {
+      this.style.background = "#4e4e4e";
+
+      setTimeout(function () {
+        btn.style.background = "";
+      }, 100);
+
+      if (input.value !== "0") {
+        input.value += value;
+      } 
     } else if (operators.includes(value)) {
       this.style.background = "#4e4e4e";
 
@@ -87,8 +100,7 @@ buttons.forEach(function (btn) {
         previewOperator = operator;
         calcResult();
 
-        console.log(result);
-        firstNum = result;
+        firstNum = result.toString();
         previewFirstNum = firstNum;
         input.value = "";
       } else if (value === "-" && input.value === "") {
@@ -171,11 +183,11 @@ btnTrashHistoric.addEventListener("click", function () {
   }
 });
 
-btnConfirmClear.addEventListener("click", function (){
+btnConfirmClear.addEventListener("click", function () {
   arrayHistoric = [];
   modalCleaningConfirmed.style.display = "block";
   listHistoric.innerHTML = "";
-})
+});
 
 btnClose.addEventListener("click", closeModals);
 btnConfirmClear.addEventListener("click", closeModals);
@@ -196,14 +208,14 @@ function closeModals() {
 
 function sanitizeInput(value) {
   var sanitizedValue = value.replace(/[^0-9.]/g, "");
-  var decimalCount = sanitizedValue.split(".").length - 1;
+  var commaCount = sanitizedValue.split(",").length - 1;
 
-  if (decimalCount > 1) {
-    sanitizedValue = sanitizedValue.replace(/\./g, "");
+  if (commaCount > 0) {
+    sanitizedValue = sanitizedValue.replace(/,/g, "");
   }
 
   return sanitizedValue;
-}
+} 
 
 input.addEventListener("keydown", function (event) {
   var key = event.key;
@@ -217,12 +229,16 @@ input.addEventListener("keydown", function (event) {
       input.value = "";
     } else if (firstNum !== "" && input.value !== "") {
       calcResult();
-      firstNum = result;
+      firstNum = result.toString();
       operator = key;
       previewFirstNum = firstNum;
       previewOperator = operator;
       input.value = "";
     }
+  }
+
+  if (key === "0" && input.value === "0") {
+    event.preventDefault();
   }
 
   if (key === "=") {
@@ -294,25 +310,25 @@ function updatePreview() {
         break;
     }
 
-    console.log(previewResult.toLocaleString().length);
     if (
-      previewResult.toLocaleString().length >= 45 &&
-      previewResult.toLocaleString().length < 50
+      previewResult.toLocaleString('en-US', { maximumFractionDigits: 6 }).length >= 45 &&
+      previewResult.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 }).length < 50
     ) {
       divShowOperation.style.marginRight = "45px";
-    } else if (previewResult.toLocaleString().length >= 50) {
+    } else if (previewResult.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 }).length >= 50) {
       divShowOperation.style.marginRight = "35px";
     } else {
       divShowOperation.style.marginRight = "80px";
     }
 
-    showOperation.textContent = `= ${previewResult.toLocaleString()}`;
+    showOperation.textContent = `= ${previewResult.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 })}`;
   } else {
     showOperation.textContent !== "";
   }
 }
 
 function calcResult() {
+  console.log(firstNum)
   secondNum = input.value;
   switch (operator) {
     case "+":
@@ -331,7 +347,8 @@ function calcResult() {
       result = parseFloat(firstNum) % parseFloat(secondNum);
       break;
   }
-  input.value = result.toLocaleString();
+
+  input.value = result.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 });
 
   updateHistoric();
 
@@ -340,11 +357,10 @@ function calcResult() {
 }
 
 function updateHistoric() {
-  let hasLongExpression = false;
 
   expression = `${parseFloat(firstNum)} ${operator} ${parseFloat(
     secondNum
-  )} = ${result.toLocaleString()}`;
+  )} = ${result.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 })}`;
   arrayHistoric.push(expression);
 
   listHistoric.innerHTML = "";
