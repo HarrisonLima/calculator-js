@@ -20,7 +20,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/calculator.css" />
+    <link rel="stylesheet" href="css/historic.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <title>Calculator</title>
   </head>
   <body>
@@ -83,17 +85,17 @@
           </div>
           <div id="listHistoric"></div>
         </div>
-        <div id="modalHistoricEmpty">
-          <i id="iconModalHistoric" class="fa-solid fa-xmark"></i>
+        <div id="modalHistoricEmpty" class="modal">
+          <i id="iconModalHistoric" class="fa-solid fa-xmark iconModalXmark"></i>
           <div class="modalHistoric__Header">
-            <button id="iconModalTrashHistoric" title="Trash">
+            <button id="iconModalTrashHistoric" class="iconModalTrash" title="Trash">
               <i class="fa-solid fa-trash"></i>
             </button>
           </div>
-          <div class="modalHistoric__title">
+          <div class="modalHistoric__elements">
             <p class="titleModal">Limpar histórico</p>
           </div>
-          <div class="modalHistoric__message">
+          <div class="modalHistoric__elements">
             <p class="messageModal">
               Opa! Parece que o histórico está vazio no momento. <br />
               Não há registros para limpar.
@@ -103,17 +105,17 @@
             <button id="btnClose" class="btnModal">Fechar</button>
           </div>
         </div>
-        <div div id="modalHistoric">
-          <i id="iconModalHistoricEmpty" class="fa-solid fa-xmark"></i>
+        <div div id="modalHistoric" class="modal">
+          <i id="iconModalHistoricEmpty" class="fa-solid fa-xmark iconModalXmark"></i>
           <div class="modalHistoric__Header">
-            <button id="iconModalTrashHistoricEmpty" title="Trash">
+            <button id="iconModalTrashHistoricEmpty" class="iconModalTrash" title="Trash">
               <i class="fa-solid fa-trash"></i>
             </button>
           </div>
-          <div class="modalHistoric__title">
+          <div class="modalHistoric__elements">
             <p class="titleModal">Limpar histórico</p>
           </div>
-          <div class="modalHistoric__message">
+          <div class="modalHistoric__elements">
             <p class="messageModal">
               Tem certeza que deseja limpar o histórico? <br />
               Não será possível reverter a operação.
@@ -123,18 +125,18 @@
             <button id="btnConfirmClear" class="btnModal">Confirmar</button>
           </div>
         </div>
-        <div div id="modalCleaningConfirmed">
-          <i id="iconModalCleaningConfirmed" class="fa-solid fa-xmark"></i>
-          <div class="modalHistoric__Header">
-            <button id="iconModalTrashCleaningConfirmed" title="Trash">
+        <div div id="modalCleaningConfirmed" class="modal">
+          <i id="iconModalCleaningConfirmed" class="fa-solid fa-xmark iconModalXmark"></i>
+          <div class="modalHistoric__Header" class="">
+            <button id="iconModalTrashCleaningConfirmed" class="iconModalTrash" title="Trash">
               <i class="fa-solid fa-trash"></i>
             </button>
-            <i id="iconModalCheckCleaningConfirmed" class="fa-solid fa-circle-check"></i>
+            <i id="iconModalCheckCleaningConfirmed" class="fa-solid fa-circle-check iconModalCheck"></i>
           </div>
-          <div class="modalHistoric__title">
+          <div class="modalHistoric__elements">
             <p class="titleModal">Limpar histórico</p>
           </div>
-          <div class="modalHistoric__message">
+          <div class="modalHistoric__elements">
             <p class="messageModal">
               O histórico foi limpo com sucesso! <br />
             </p>
