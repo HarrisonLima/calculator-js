@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #141414;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%;
+}
+
+.calculadora {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.calculadora__titulo {
+  animation: changeColor 4s infinite;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: default;
+  display: flex;
+  font-size: 3.5rem;
+  gap: 10px;
+  font-weight: 700;
+  transition: 0.4s;
+}
+
+.calculadora__titulo:hover > span:nth-child(even) {
+  transition: 0.4s;
+  transform: translateY(0.5em);
+}
+
+@keyframes changeColor {
+  0%, 100% {
+    text-shadow: 0px 2px 24px #ffffff;
+  }
+  50% {
+    text-shadow: 0px 2px 24px #cf7104;
+  }
+}
+.calculadora__content {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.modal__calculadora {
+  align-items: center;
+  border: solid 1px #818181;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal__calculadora__content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 50px;
+}
+
+.container__buttons__historico {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+}
+
+.container__input {
+  background: #141414;
+  border: solid 1.5px #818181;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  height: 45px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.container__buttons__calculadora {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-items: center;
+}
+
+.buttons__section {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal__historico {
+  align-items: center;
+  border: solid 1px #818181;
+  border-radius: 5px;
+  justify-content: center;
+  height: 350px;
+  text-align: center;
+  width: 275px;
+}
+
+.modal__historico__header {
+  align-items: center;
+  background: #cf7104;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.historico__header--titulo {
+  color: #ffffff;
+  padding: 10px;
+  font-weight: 600;
+}
+
+#listHistoric {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  max-height: 100%;
+  margin-top: 5px;
+  height: 330px;
+}
+
+#listHistoric p {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  height: 20;
+  max-height: 100%;
+  width: 100%;
+}
+
+.modal__mensagem {
+  align-items: center;
+  border: solid 1px #818181;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  width: 425px;
+}
+
+.modal__mensagem__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.modalHistoric__Header {
+  display: flex;
+  justify-content: center;
+}
+
+.iconModalCheck {
+  color: #0a630a;
+  font-size: 18px;
+  margin-right: -15px;
+}
+
+.content__logo {
+  align-items: center;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+  padding: 20px;
+}
+
+.logo__trash {
+  color: #cf7104;
+  font-size: 2rem;
+}
+
+.content__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.info__titulo {
+  color: #cf7104;
+  font-size: 1.5rem;
+}
+
+.info__mensagem {
+  font-size: 1rem;
+}
+
+.content__button {
+  margin-top: 15px;
+}
+
+.footer {
+  align-items: center;
+  border: none;
+  border-top: 1px solid #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.footer__socials {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer__socials li {
+  list-style: none;
+}
+
+.footer__icon {
+  background: #ffffff;
+  border: solid 8px #ffffff;
+  border-radius: 50%;
+  color: #141414;
+  font-size: 2.5rem;
+}
+
+.footer__copyright {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn__trash {
+  background-color: transparent;
+  color: #da0d0d;
+  border: none;
+  cursor: pointer;
+  display: none;
+  font-size: 1.125rem;
+}
+
+.btn__hist {
+  background-color: #141414;
+  color: #ffffff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: solid 1px #818181;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  height: 50px;
+  width: 140px;
+}
+
+.btn__hist:hover {
+  background-color: #cf7104;
+  color: #ffffff;
+  border-color: #cf7104;
+  box-shadow: 0 0.5em 0.6em -0.4em #cf7104;
+  transition: 0.2s;
+}
+
+.btn__calc {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: solid 1px #818181;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  height: 50px;
+}
+
+.btn__calc--default {
+  background-color: #141414;
+  color: #ffffff;
+  width: 80px;
+}
+
+.btn__calc--default:hover {
+  background-color: #303030;
+  color: #ffffff;
+}
+
+.btn__calc--backspace {
+  width: 170px;
+}
+
+.btn__calc--clear {
+  width: 80px;
+}
+
+.btn__calc--backspace,
+.btn__calc--clear {
+  background-color: #141414;
+  color: #cf7104;
+}
+
+.btn__calc--backspace:hover,
+.btn__calc--clear:hover {
+  background-color: #cf7104;
+  color: #ffffff;
+  border-color: #cf7104;
+  transition: 0.3s;
+}
+
+.btn__calc--equals {
+  background-color: #cf7104;
+  color: #ffffff;
+  border-color: #cf7104;
+  width: 80px;
+}
+
+.btn__calc--equals:hover {
+  background-color: #ffffff;
+  color: #cf7104;
+  border-color: #ffffff;
+  transition: 0.3s;
+}
+
+.button__mensagem {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #141414;
+  border: 1px solid #cf7104;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  height: 45px;
+  transition: 0.3s;
+  width: 140px;
+}
+
+.button__mensagem:hover {
+  background-color: #cf7104;
+  box-shadow: 0 0.5em 0.6em -0.4em #cf7104;
+  transform: translateY(-0.3em);
+}/*# sourceMappingURL=styles.css.map */

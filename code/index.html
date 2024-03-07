@@ -9,112 +9,227 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <script
       src="https://kit.fontawesome.com/fb57ddc8bd.js"
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="css/calculator.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/historic.css" />
-    <link rel="stylesheet" href="css/modal.css" />
-    <title>Calculator</title>
+    <link rel="stylesheet" href="style/styles.css" />
+    <title>Calculadora</title>
   </head>
   <body>
-    <div class="content">
-      <div>
-        <p class="title">Calculadora</p>
-      </div>
-      <div class="calculator">
-        <div class="calculatorOperation">
-          <div class="calculator__content">
-            <div
+    <div class="calculadora">
+      <h1 class="calculadora__titulo">
+        <span>C</span>
+        <span>a</span>
+        <span>l</span>
+        <span>c</span>
+        <span>u</span>
+        <span>l</span>
+        <span>a</span>
+        <span>d</span>
+        <span>o</span>
+        <span>r</span>
+        <span>a</span>
+      </h1>
+      <div class="calculadora__content">
+        <div class="modal__calculadora">
+          <div class="modal__calculadora__content">
+            <section
               id="calculatorHistoricActions"
-              class="calculator__historicActions"
+              class="container__buttons__historico"
             >
-              <button id="btnHistoric">Histórico</button>
-              <button id="btnTrashHistoric" title="Trash">
+              <button id="btnHistoric" class="btn__hist">
+                Histórico
+              </button>
+              <button
+                id="btnTrashHistoric"
+                class="btn__trash"
+                titulo="Trash"
+              >
                 <i class="fa-solid fa-trash"></i>
               </button>
-            </div>
-            <input id="operation" type="text" title="Operation" />
+            </section>
 
-            <div class="buttons__digits">
-              <div class="buttons__digits--header">
-                <button class="btn" id="btnPercent" value="%">%</button>
-                <button class="btn" id="btnSplit" value="/">/</button>
-                <button id="btnBackspace" value="delete" title="Backspace">
+            <input
+              id="operation"
+              class="container__input"
+              type="text"
+              titulo="Operation"
+            />
+
+            <div class="container__buttons__calculadora">
+              <div class="buttons__section">
+                <button
+                  class="btn__calc btn__calc--default"
+                  id="btnPercent"
+                  value="%"
+                >
+                  %
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="/"
+                >
+                  /
+                </button>
+                <button
+                  class="btn__calc btn__calc--backspace"
+                  value="delete"
+                  titulo="Backspace"
+                >
                   <i class="fa-solid fa-delete-left"></i>
                 </button>
               </div>
-              <div class="buttons__digits--firstLine">
-                <button class="btn" id="btn7" value="7">7</button>
-                <button class="btn" id="btn8" value="8">8</button>
-                <button class="btn" id="btn9" value="9">9</button>
-                <button class="btn" id="btnTimes" value="*">*</button>
+              <div class="buttons__section">
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="7"
+                >
+                  7
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="8"
+                >
+                  8
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="9"
+                >
+                  9
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="*"
+                >
+                  *
+                </button>
               </div>
-              <div class="buttons__digits--secondLine">
-                <button class="btn" id="btn4" value="4">4</button>
-                <button class="btn" id="btn5" value="5">5</button>
-                <button class="btn" id="btn6" value="6">6</button>
-                <button class="btn" id="btnMinus" value="-">-</button>
+              <div class="buttons__section">
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="4"
+                >
+                  4
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="5"
+                >
+                  5
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="6"
+                >
+                  6
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="-"
+                >
+                  -
+                </button>
               </div>
-              <div class="buttons__digits--thirdLine">
-                <button class="btn" id="btn1" value="1">1</button>
-                <button class="btn" id="btn2" value="2">2</button>
-                <button class="btn" id="btn3" value="3">3</button>
-                <button class="btn" id="btnPlus" value="+">+</button>
+              <div class="buttons__section">
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="1"
+                >
+                  1
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="2"
+                >
+                  2
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="3"
+                >
+                  3
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="+"
+                >
+                  +
+                </button>
               </div>
-              <div class="buttons__digits--fourthLine">
-                <button class="btn" id="btnClear" value="C">C</button>
-                <button class="btn" id="btn0" value="4">0</button>
-                <button class="btn" id="btnPoint" value=".">.</button>
-                <button class="btn" id="btnEquals" value="=">=</button>
+              <div class="buttons__section">
+                <button
+                  class="btn__calc btn__calc--clear"
+                  value="C"
+                >
+                  C
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="4"
+                >
+                  0
+                </button>
+                <button
+                  class="btn__calc btn__calc--default"
+                  value="."
+                >
+                  .
+                </button>
+                <button
+                  class="btn__calc btn__calc--equals"
+                  value="="
+                >
+                  =
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div id="historic" class="historic">
-          <div class="headerHistoric">
-            <h1 class="titleHistoric">Histórico</h1>
+<!-- 
+        <div id="modalHistorico" class="modal__historico">
+          <div class="modal__historico__header">
+            <h1 class="historico__header--titulo">Histórico</h1>
           </div>
           <div id="listHistoric"></div>
         </div>
-        <div id="modalHistoricEmpty" class="modal">
-          <i id="iconModalHistoric" class="fa-solid fa-xmark iconModalXmark"></i>
-          <div class="modalHistoric__Header">
-            <button id="iconModalTrashHistoric" class="iconModalTrash" title="Trash">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </div>
-          <div class="modalHistoric__elements">
-            <p class="titleModal">Limpar histórico</p>
-          </div>
-          <div class="modalHistoric__elements">
-            <p class="messageModal">
-              Opa! Parece que o histórico está vazio no momento. <br />
-              Não há registros para limpar.
-            </p>
-          </div>
-          <div class="groupBtnModal">
-            <button id="btnClose" class="btnModal">Fechar</button>
-          </div>
+
+        <div id="modalMensagem" class="modal__mensagem">
+          <div class="modal__mensagem__content">
+            <div class="content__logo">
+              <i class="fa-solid fa-trash logo__trash"></i>
+            </div>
+            <div class="content__info">
+              <h1 class="info__titulo">Limpar histórico</h1>
+              <h2 class="info__mensagem">
+                Opa! Não há registros para limpar.
+              </h2>
+            </div>
+            <div class="content__button">
+              <button id="buttonMensagem" class="button__mensagem">
+                Fechar
+              </button>
+            </div>
+          </div> -->
         </div>
-        <div div id="modalHistoric" class="modal">
-          <i id="iconModalHistoricEmpty" class="fa-solid fa-xmark iconModalXmark"></i>
+        <!-- <div div id="modalHistoric" class="modal">
+          <i
+            id="iconModalHistoricEmpty"
+            class="fa-solid fa-xmark iconModalXmark"
+          ></i>
           <div class="modalHistoric__Header">
-            <button id="iconModalTrashHistoricEmpty" class="iconModalTrash" title="Trash">
+            <button
+              id="iconModalTrashHistoricEmpty"
+              class="iconModalTrash"
+              titulo="Trash"
+            >
               <i class="fa-solid fa-trash"></i>
             </button>
           </div>
           <div class="modalHistoric__elements">
-            <p class="titleModal">Limpar histórico</p>
+            <p class="tituloModal">Limpar histórico</p>
           </div>
           <div class="modalHistoric__elements">
             <p class="messageModal">
@@ -127,15 +242,25 @@
           </div>
         </div>
         <div div id="modalCleaningConfirmed" class="modal">
-          <i id="iconModalCleaningConfirmed" class="fa-solid fa-xmark iconModalXmark"></i>
+          <i
+            id="iconModalCleaningConfirmed"
+            class="fa-solid fa-xmark iconModalXmark"
+          ></i>
           <div class="modalHistoric__Header" class="">
-            <button id="iconModalTrashCleaningConfirmed" class="iconModalTrash" title="Trash">
+            <button
+              id="iconModalTrashCleaningConfirmed"
+              class="iconModalTrash"
+              titulo="Trash"
+            >
               <i class="fa-solid fa-trash"></i>
             </button>
-            <i id="iconModalCheckCleaningConfirmed" class="fa-solid fa-circle-check iconModalCheck"></i>
+            <i
+              id="iconModalCheckCleaningConfirmed"
+              class="fa-solid fa-circle-check iconModalCheck"
+            ></i>
           </div>
           <div class="modalHistoric__elements">
-            <p class="titleModal">Limpar histórico</p>
+            <p class="tituloModal">Limpar histórico</p>
           </div>
           <div class="modalHistoric__elements">
             <p class="messageModal">
@@ -145,25 +270,36 @@
           <div class="groupBtnModal">
             <button id="btnOkOnly" class="btnModal">Ok</button>
           </div>
-        </div>
-        </div>
+        </div> -->
       </div>
     </div>
-    <div class="line">
-    </div>
-    <footer>
+    <footer class="footer">
       <div class="footer__content">
-        
-        <ul class="socials">
-          <li><a title="email" href="mailto:harrisonlima92@gmail.com"><i id="iconEmail" class="fa-solid fa-envelope"></i></a></li>
-          <li><a title="instagram" href="https://www.instagram.com/harrison_lima1512/"><i id="iconInstagram" class="fa-brands fa-instagram"></i></a></li>
-          <li><a title="linkedin" href="https://www.linkedin.com/in/harrison-fabiano-de-lima/"><i id="iconLinkedin" class="fa-brands fa-linkedin"></i></a></li>
-          <li><a title="github" href="https://github.com/HarrisonLima"><i id="iconGithub"class="fa-brands fa-github"></i></a></li>
+        <ul class="footer__socials">
+          <li>
+            <a title="email" href="mailto:harrisonlima92@gmail.com" target="_blank" rel="noopener noreferrer"
+              ><i id="iconEmail" class="fa-solid fa-envelope footer__icon"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              title="linkedin"
+              href="https://www.linkedin.com/in/harrison-fabiano-de-lima/" target="_blank" rel="noopener noreferrer"
+              ><i
+                id="iconLinkedin"
+                class="fa-brands fa-linkedin footer__icon"
+              ></i
+            ></a>
+          </li>
+          <li>
+            <a title="github" href="https://github.com/HarrisonLima" target="_blank" rel="noopener noreferrer"
+              ><i id="iconGithub" class="fa-brands fa-github footer__icon"></i
+            ></a>
+          </li>
         </ul>
-      </div>
-
-      <div class="footer__bottom">
-        <p>copyright &copy;2023 Harrison Fabiano de Lima.</p>
+        <p class="footer__copyright">
+          copyright &copy;2024 Harrison Fabiano de Lima
+        </p>
       </div>
     </footer>
     <script src="./js/script.js"></script>
