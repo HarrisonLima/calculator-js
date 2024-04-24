@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/fb57ddc8bd.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="style/styles.css" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="calculadora">
+      <h1 class="calculadora__titulo">
+        <span>C</span>
+        <span>a</span>
+        <span>l</span>
+        <span>c</span>
+        <span>u</span>
+        <span>l</span>
+        <span>a</span>
+        <span>d</span>
+        <span>o</span>
+        <span>r</span>
+        <span>a</span>
+      </h1>
+      <div class="calculadora__content">
+        <div class="modal__calculadora">
+          <div class="modal__calculadora__content">
+            <input class="container__input" type="text" titulo="Operation" disabled/>
+            <div class="container__buttons__calculadora">
+              <div class="buttons__section">
+                <button
+                  class="btn__calc btn__calc--default"
+                  id="btnPercent"
+                  value="%"
+                >
+                  %
+                </button>
+                <button class="btn__calc btn__calc--default" value="/">
+                  /
+                </button>
+                <button
+                  class="btn__calc btn__calc--backspace"
+                  value="Backspace"
+                  titulo="Backspace"
+                >
+                  <i class="fa-solid fa-delete-left"></i>
+                </button>
+              </div>
+              <div class="buttons__section">
+                <button class="btn__calc btn__calc--default" value="7">
+                  7
+                </button>
+                <button class="btn__calc btn__calc--default" value="8">
+                  8
+                </button>
+                <button class="btn__calc btn__calc--default" value="9">
+                  9
+                </button>
+                <button class="btn__calc btn__calc--default" value="*">
+                  *
+                </button>
+              </div>
+              <div class="buttons__section">
+                <button class="btn__calc btn__calc--default" value="4">
+                  4
+                </button>
+                <button class="btn__calc btn__calc--default" value="5">
+                  5
+                </button>
+                <button class="btn__calc btn__calc--default" value="6">
+                  6
+                </button>
+                <button class="btn__calc btn__calc--default" value="-">
+                  -
+                </button>
+              </div>
+              <div class="buttons__section">
+                <button class="btn__calc btn__calc--default" value="1">
+                  1
+                </button>
+                <button class="btn__calc btn__calc--default" value="2">
+                  2
+                </button>
+                <button class="btn__calc btn__calc--default" value="3">
+                  3
+                </button>
+                <button class="btn__calc btn__calc--default" value="+">
+                  +
+                </button>
+              </div>
+              <div class="buttons__section">
+                <button class="btn__calc btn__calc--clear" value="Clear">
+                  C
+                </button>
+                <button class="btn__calc btn__calc--default" value="0">
+                  0
+                </button>
+                <button class="btn__calc btn__calc--default" value=",">
+                  .
+                </button>
+                <button class="btn__calc btn__calc--equals" value="=">=</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__content">
+        <ul class="footer__socials">
+          <li>
+            <a
+              title="email"
+              href="mailto:harrisonlima92@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i id="iconEmail" class="fa-solid fa-envelope footer__icon"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              title="linkedin"
+              href="https://www.linkedin.com/in/harrison-fabiano-de-lima/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i
+                id="iconLinkedin"
+                class="fa-brands fa-linkedin footer__icon"
+              ></i
+            ></a>
+          </li>
+          <li>
+            <a
+              title="github"
+              href="https://github.com/HarrisonLima"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i id="iconGithub" class="fa-brands fa-github footer__icon"></i
+            ></a>
+          </li>
+        </ul>
+        <p class="footer__copyright">
+          Copyright &copy;2024 <strong>Harrison Fabiano de Lima</strong>
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
